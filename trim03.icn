@@ -1,0 +1,558 @@
+#This is a mesh plane that uses triangles instead of quads.
+#incomplete
+
+#shawnfratis@gmail.com
+
+link wopen
+link xcompat
+link color
+link graphics
+link numbers
+link options
+link dsetup
+link evmux
+link ivalue 
+link usage
+link strings
+
+procedure main()
+
+#################################################################################
+
+WOpen("label=FDraw01", "size=1000,700","bg=black","linewidth=1","fg=green")
+
+        WAttrib("dx=1", "dy=1")
+
+        #inst()
+  
+        repeat {
+
+w := Active() | stop("Active fails")
+
+################################
+#not presently used - can be modified to re-introduce mouse events.
+   
+       case e := Event(w) of {
+
+&lpress | &mpress | &rpress: {
+	      x1 := &x
+	      y1 := &y
+	      x2 := y2 := &null
+	  }
+
+################################
+#most of these key commands presently don't do anything except for trimesh and WriteImage.
+
+"\z": {
+	 
+        WriteImage("/media/289F-FD98/leonosv1/fg001.gif")
+
+}
+
+################################
+
+"\q": {
+	      WAttrib("linewidth=1")
+              }
+"\w": {
+	      WAttrib("linewidth=2")
+              }
+"\y": {
+	      WAttrib("linewidth=3")
+              }
+"\u": {
+	      WAttrib("linewidth=4")
+              }
+"\i": {
+	      WAttrib("linewidth=5")
+              }
+"\o": {
+	      WAttrib("linewidth=6")
+              }
+"\p": {
+	      WAttrib("linewidth=8")
+              }
+"\k": {
+	      WAttrib("linewidth=10")
+              }
+"\a": {
+	      Fg("red")
+              }
+"\s": {
+	      Fg("green")
+              }
+"\g": {
+	      Fg("orange")
+              }
+"\h": {
+	      Fg("blue")
+              }
+"\j": {
+	      Fg("purple")
+              }
+"\G": {
+	      Fg("yellow")
+              }
+"\H": {
+	      Fg("black")
+              }
+"\J": {
+	      Fg("white")
+              }
+"\;": {
+              textin01()
+              }
+"\?": {       
+              inst()      
+              }
+"\$": {      
+              decimalp1()
+	      }
+"\%": {    
+              decimalp2()
+              }
+"\[": {    
+              supermesh01(1,50,225)
+              }
+"\]": {       
+              EraseArea()
+              }
+"\-": {  
+              clock()
+              }
+"\'": {       
+              grid()
+              }
+"\/": {  
+              tmod01(1,-100,1)
+              }
+"\@": {
+              exit()
+              }
+"\<": { 
+             trimesh01()
+              }
+"\>": {       
+             widePlain01(1)
+              }
+"\_": { 
+              wf01()
+              }
+"\+": {       
+              wf02()
+              }
+"\{": { 
+              wf03()
+              }
+"\}": {       
+              wf04()
+              }
+"\!": { 
+              helpmsg1()
+              }
+"\~": {       
+              helpmsg2()
+              }
+"\=": { 
+               readme01()
+              }
+"\.": { 
+              Notice("")
+              }
+"\,": { 
+              openImage()
+              }
+"\\": {      
+              inputprompt()
+              }
+"\(": { 
+              wfcalc()
+             
+	}
+     }
+  }
+
+WDone()
+
+end
+
+
+########################################################
+#open image
+
+procedure openImage()
+
+        ReadImage("/mnt/sda1/leonosv1/fg01.png",1,1)
+
+end
+
+#########################################################
+
+########################################################
+#xy change#######################################
+
+procedure angle01()
+        WAttrib("dx=500", "dy=400")
+end
+
+procedure angle02()
+        WAttrib("dx=450", "dy=200")
+end
+
+procedure angle03()
+        WAttrib("dx=400", "dy=150")
+end
+
+procedure angle04()
+        WAttrib("dx=350", "dy=100")
+end
+
+#end xy change###################################
+
+###############################################################################
+
+
+procedure tmod01(xdd,v01,v02,v03,v04,v05,v06,v07,v08,v09,v10,v11,v12,v13,v14,v15,cc,dd,ee,ff,xzz)
+
+WAttrib("dx=500", "dy=350")
+
+duk := cc
+dad := dd
+daq := ee
+daz := ff
+
+###########################################################################################
+
+bz := 50+xzz
+
+(ya1 := 300+v01,ya2 := 300+v13,ya3 := 300+v12,ya4 := 300+v01,ya5 := 300+v02,ya6 := 300+v13)
+
+(ya7 := 300+v02,yb1 := 300+v03,yb2 := 300+v13,yb3 := 300+v03,yb4 := 300+v14,yb5 := 300+v13)
+
+(yb6 := 300+v03,yb7 := 300+v15,yc1 := 300+v14,yc2 := 300+v03,yc3 := 300+v04,yc4 := 300+v15)
+
+(yc5 := 300+v04,yc6 := 300+v05,yc7 := 300+v15,yd1 := 300+v05,yd2 := 300+v06,yd3 := 300+v15)
+
+(yd4 := 300+v12,yd5 := 300+v13,yd6 := 300+v11,yd7 := 300+v13,ye1 := 300+v10,ye2 := 300+v11)
+
+(ye3 := 300+v13,ye4 := 300+v09,ye5 := 300+v10,ye6 := 300+v13,ye7 := 300+v14,yf1 := 300+v09)
+
+(yf2 := 300+v14,yf3 := 300+v15,yf4 := 300+v09,yf5 := 300+v15,yf6 := 300+v08,yf7 := 300+v09)
+
+(yg1 := 300+v15,yg2 := 300+v07,yg3 := 300+v08,yg4 := 300+v15,yg5 := 300+v06,yg6 := 300+v07)
+
+######################################################
+
+(xa1 := 1+xdd,xa2 := 20+xdd,xa3 := 1+xdd,xa4 := 1+xdd,xa5 := 20+xdd,xa6 := 20+xdd)
+
+(xa7 := 20+xdd,xb1 := 40+xdd,xb2 := 20+xdd,xb3 := 40+xdd,xb4 := 40+xdd,xb5 := 20+xdd)
+
+(xb6 := 40+xdd,xb7 := 60+xdd,xc1 := 40+xdd,xc2 := 40+xdd,xc3 := 60+xdd,xc4 := 60+xdd)
+
+(xc5 := 60+xdd,xc6 := 60+xdd,xc7 := 80+xdd,xd1 := 80+xdd,xd2 := 80+xdd,xd3 := 60+xdd)
+
+(xd4 := 1+xdd,xd5 := 20+xdd,xd6 := 1+xdd,xd7 := 20+xdd,xe1 := 20+xdd,xe2 := 1+xdd)
+
+(xe3 := 20+xdd,xe4 := 40+xdd,xe5 := 20+xdd,xe6 := 20+xdd,xe7 := 40+xdd,xf1 := 40+xdd)
+
+(xf2 := 40+xdd,xf3 := 60+xdd,xf4 := 40+xdd,xf5 := 60+xdd,xf6 := 60+xdd,xf7 := 40+xdd)
+
+(xg1 := 60+xdd,xg2 := 80+xdd,xg3 := 60+xdd,xg4 := 60+xdd,xg5 := 80+xdd,xg6 := 80+xdd)
+
+##############
+
+(az3 := 100,az2 := 120,az1 := 140)
+
+######################################################
+
+xq1 := (xa1 * bz/az1) 
+xq7 := (xa2 * bz/az2) 
+xq6 := (xa3 * bz/az2)
+ 
+xq1 := (xa4 * bz/az1) 
+xq2 := (xa5 * bz/az1)
+xq7 := (xa6 * bz/az2)
+ 
+xq2 := (xa7 * bz/az1) 
+xq3 := (xb1 * bz/az1) 
+xq7 := (xb2 * bz/az2)
+ 
+xq3 := (xb3 * bz/az1) 
+xq8 := (xb4 * bz/az2) 
+xq7 := (xb5 * bz/az2)
+
+xq3 := (xb6 * bz/az1) 
+xq9 := (xb7 * bz/az2) 
+xq8 := (xc1 * bz/az2)
+
+xq3 := (xc2 * bz/az1) 
+xq4 := (xc3 * bz/az1) 
+xq9 := (xc4 * bz/az2)
+
+xq4 := (xc5 * bz/az1) 
+xq5 := (xc6 * bz/az1) 
+xq9 := (xc7 * bz/az2)
+
+xq5 := (xd1 * bz/az1) 
+xm1 := (xd2 * bz/az2) 
+xq9 := (xd3 * bz/az2)
+
+#######################################
+
+xq6 := (xd4 * bz/az2) 
+xq7 := (xd5 * bz/az2) 
+xm2 := (xd6 * bz/az3)
+ 
+xq7 := (xd7 * bz/az2) 
+xm3 := (xe1 * bz/az3)
+xm2 := (xe2 * bz/az3)
+ 
+xq7 := (xe3 * bz/az2) 
+xm4 := (xe4 * bz/az3) 
+xm3 := (xe5 * bz/az3)
+ 
+xq7 := (xe6 * bz/az2) 
+xq8 := (xe7 * bz/az2) 
+xm4 := (xf1 * bz/az3)
+
+xq8 := (xf2 * bz/az2) 
+xq9 := (xf3 * bz/az2) 
+xm4 := (xf4 * bz/az3)
+
+xq9 := (xf5 * bz/az2) 
+xm5 := (xf6 * bz/az3) 
+xm4 := (xf7 * bz/az3)
+
+xq9 := (xg1 * bz/az2) 
+xm6 := (xg2 * bz/az3) 
+xm5 := (xg3 * bz/az3)
+
+xq9 := (xg4 * bz/az2) 
+xm1 := (xg5 * bz/az2) 
+xm6 := (xg6 * bz/az3)
+
+##############################################
+
+
+yq1 := (ya1 * bz/az1) 
+yq7 := (ya2 * bz/az2) 
+yq6 := (ya3 * bz/az2)
+ 
+yq1 := (ya4 * bz/az1) 
+yq2 := (ya5 * bz/az1)
+yq7 := (ya6 * bz/az2)
+ 
+yq2 := (ya7 * bz/az1) 
+yq3 := (yb1 * bz/az1) 
+yq7 := (yb2 * bz/az2)
+ 
+yq3 := (yb3 * bz/az1) 
+yq8 := (yb4 * bz/az2) 
+yq7 := (yb5 * bz/az2)
+
+yq3 := (yb6 * bz/az1) 
+yq9 := (yb7 * bz/az2) 
+yq8 := (yc1 * bz/az2)
+
+yq3 := (yc2 * bz/az1) 
+yq4 := (yc3 * bz/az1) 
+yq9 := (yc4 * bz/az2)
+
+yq4 := (yc5 * bz/az1) 
+yq5 := (yc6 * bz/az1) 
+yq9 := (yc7 * bz/az2)
+
+yq5 := (yd1 * bz/az1) 
+ym1 := (yd2 * bz/az2) 
+yq9 := (yd3 * bz/az2)
+
+#######################################
+
+yq6 := (yd4 * bz/az2) 
+yq7 := (yd5 * bz/az2) 
+ym2 := (yd6 * bz/az3)
+ 
+yq7 := (yd7 * bz/az2) 
+ym3 := (ye1 * bz/az3)
+ym2 := (ye2 * bz/az3)
+ 
+yq7 := (ye3 * bz/az2) 
+ym4 := (ye4 * bz/az3) 
+ym3 := (ye5 * bz/az3)
+ 
+yq7 := (ye6 * bz/az2) 
+yq8 := (ye7 * bz/az2) 
+ym4 := (yf1 * bz/az3)
+
+yq8 := (yf2 * bz/az2) 
+yq9 := (yf3 * bz/az2) 
+ym4 := (yf4 * bz/az3)
+
+yq9 := (yf5 * bz/az2) 
+ym5 := (yf6 * bz/az3) 
+ym4 := (yf7 * bz/az3)
+
+yq9 := (yg1 * bz/az2) 
+ym6 := (yg2 * bz/az3) 
+ym5 := (yg3 * bz/az3)
+
+yq9 := (yg4 * bz/az2) 
+ym1 := (yg5 * bz/az2) 
+ym6 := (yg6 * bz/az3)
+
+######################################################
+
+Fg(duk)
+#1
+ FillPolygon(xq1,yq1,xq7,yq7,xq6,yq6)####
+
+Fg(duk)
+#2  
+ FillPolygon(xq1,yq1,xq2,yq2,xq7,yq7)
+
+Fg(dad)
+#3  
+ FillPolygon(xq2,yq2,xq3,yq3,xq7,yq7)
+
+Fg(dad)
+#4  
+ FillPolygon(xq3,yq3,xq8,yq8,xq7,yq7)
+
+Fg(dad)
+#5
+ FillPolygon(xq3,yq3,xq9,yq9,xq8,yq8)
+
+Fg(daq)
+#6  
+ FillPolygon(xq3,yq3,xq4,yq4,xq9,yq9)
+
+Fg(daz)
+#7
+ FillPolygon(xq4,yq4,xq5,yq5,xq9,yq9)
+
+Fg(daz)
+#8  
+ FillPolygon(xq5,yq5,xm1,ym1,xq9,yq9)
+
+######################################################
+
+Fg(duk)
+#9  
+ FillPolygon(xq6,yq6,xq7,yq7,xm2,ym2)
+
+Fg(duk)
+#10  
+ FillPolygon(xq7,yq7,xm3,ym3,xm2,ym2)
+
+Fg(duk)
+#11
+ FillPolygon(xq7,yq7,xm4,ym4,xm3,ym3)
+
+Fg(dad)
+#12  
+ FillPolygon(xq7,yq7,xq8,yq8,xm4,ym4)
+
+Fg(duk)
+#13
+ FillPolygon(xq8,yq8,xq9,yq9,xm4,ym4)
+
+Fg(dad)
+#14  
+ FillPolygon(xq9,yq9,xm5,ym5,xm4,ym4)
+
+Fg(daz)
+#15  
+ FillPolygon(xq9,yq9,xm6,ym6,xm5,ym5)
+
+Fg(daz)
+#16  
+ FillPolygon(xq9,yq9,xm1,ym1,xm6,ym6)
+ 
+end
+
+############################################################
+
+procedure tricolor01(duk,dad,daq,daz)
+
+duk := ("2000,10000,1000")
+dad := ("4000,20000,6000")
+daq := ("5000,30000,5000")
+daz := ("1000,14000,1000")
+
+end
+
+procedure tricolor02(duk,dad,daq,daz)
+
+duk := ("10000,10000,1000")
+dad := ("14000,20000,6000")
+daq := ("15000,30000,5000")
+daz := ("11000,14000,1000")
+
+end
+
+######################################################
+
+procedure trimesh01()
+
+#tmod01(50,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,220)
+#tmod01(50,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,330)
+#tmod01(-28,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,220)
+#tmod01(-28,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,330)
+
+#group 1
+
+#2nd
+tmod01(-80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"green","red","yellow","orange",220)
+#4th
+tmod01(-80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong green","blue","medium weak green","purple",330)
+#1st
+tmod01(-160,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"medium weak red","magenta","dark moderate orange","cyan",220)
+#3rd
+tmod01(-160,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong blue","brown","medium weak red","2000,30000,2000",330)
+
+#group 2
+
+#2nd
+tmod01(80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"green","red","yellow","orange",220)
+#4th
+tmod01(80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong green","blue","medium weak green","purple",330)
+#1st
+tmod01(1,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"medium weak red","magenta","dark moderate orange","cyan",220)
+#3rd
+tmod01(1,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong blue","brown","medium weak red","2000,30000,2000",330)
+
+#group 3
+
+#2nd
+tmod01(-80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"green","red","yellow","orange",490)
+#4th
+tmod01(-80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong green","blue","medium weak green","purple",710)
+#1st
+tmod01(-160,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"medium weak red","magenta","dark moderate orange","cyan",490)
+#3rd
+tmod01(-160,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong blue","brown","medium weak red","2000,30000,2000",710)
+
+#group 4
+
+#2nd
+tmod01(80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"green","red","yellow","orange",490)
+#4th
+tmod01(80,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong green","blue","medium weak green","purple",710)
+#1st
+tmod01(1,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"medium weak red","magenta","dark moderate orange","cyan",490)
+#3rd
+tmod01(1,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,-260,"dark strong blue","brown","medium weak red","2000,30000,2000",710)
+
+end
+
+
+###################################################################################################################
+
+#END OF PROGRAM########################################
+
+#####################################################################################################################
+
+
+######################################################################################################################
+#
+#
